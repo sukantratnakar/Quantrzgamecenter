@@ -8,3 +8,15 @@
 # Backup files
 *.bak
 *.backup
+
+# Environment files
+.env
+
+# Backup directory
+u755186149.20260104192759/
+
+# Vendor directory (will be installed via composer)
+vendor/
+
+# Installation scripts
+install_php.sh
