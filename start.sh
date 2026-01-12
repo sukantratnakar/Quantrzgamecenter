@@ -1,23 +1,24 @@
 #!/bin/bash
+set -e
 
-# Set PORT to Railway's PORT or default to 80
-export PORT=${PORT:-80}
+# Set PORT to Railway's PORT or default to 8080
+export PORT=${PORT:-8080}
 
-# Disable all MPM modules first to prevent conflicts
-a2dismod mpm_event mpm_worker mpm_prefork 2>/dev/null || true
+echo "Starting services on port ${PORT}"
 
-# Enable only mpm_prefork (required for mod_php)
-a2enmod mpm_prefork
+# Generate Nginx config from template with PORT substitution
+envsubst '${PORT}' < /etc/nginx/sites-available/default.template > /etc/nginx/sites-available/default
 
-# Update Apache ports configuration
-sed -i "s/Listen 80/Listen ${PORT}/g" /etc/apache2/ports.conf
+# Remove default nginx config if it exists
+rm -f /etc/nginx/sites-enabled/default
 
-# Update Apache configuration with the PORT variable
-export APACHE_RUN_USER=www-data
-export APACHE_RUN_GROUP=www-data
-export APACHE_LOG_DIR=/var/log/apache2
+# Enable our site configuration
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
-echo "Starting Apache on port ${PORT}"
+# Start PHP-FPM in the background
+echo "Starting PHP-FPM..."
+php-fpm -D
 
-# Start Apache in foreground
-apache2-foreground
+# Start Nginx in the foreground
+echo "Starting Nginx on port ${PORT}..."
+nginx -g 'daemon off;'

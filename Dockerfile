@@ -1,6 +1,6 @@
-FROM php:8.2-apache
+FROM php:8.2-fpm
 
-# Install system dependencies
+# Install system dependencies and Nginx
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     zip \
     unzip \
+    nginx \
+    gettext-base \
     && docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd \
     && rm -rf /var/lib/apt/lists/*
 
@@ -24,22 +26,19 @@ COPY . /var/www/html
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# Copy Apache configuration
-COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+# Copy Nginx configuration template
+COPY nginx.conf /etc/nginx/sites-available/default.template
 
 # Copy startup script
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
-
-# Enable Apache mod_rewrite
-RUN a2enmod rewrite
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
 # Expose dynamic port
-EXPOSE ${PORT:-80}
+EXPOSE ${PORT:-8080}
 
-# Start Apache server with custom script
+# Start services with custom script
 CMD ["/usr/local/bin/start.sh"]
