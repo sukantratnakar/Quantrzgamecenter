@@ -1,0 +1,10 @@
+# Large backup files
+*.tar.gz
+*.sql.gz
+
+# macOS system files
+.DS_Store
+
+# Backup files
+*.bak
+*.backup
