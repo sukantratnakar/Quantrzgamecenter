@@ -1,0 +1,30 @@
+# Git files
+.git
+.gitignore
+
+# Environment files
+.env
+.env.example
+
+# Documentation
+*.md
+DEPLOYMENT.md
+
+# Backup files
+*.tar.gz
+*.sql.gz
+*.bak
+*.backup
+u755186149.20260104192759/
+
+# macOS
+.DS_Store
+
+# Scripts
+push_to_github.sh
+install_php.sh
+
+# IDE
+.vscode
+.idea
+.claude
