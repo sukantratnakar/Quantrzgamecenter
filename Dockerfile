@@ -33,8 +33,10 @@ COPY nginx.conf /etc/nginx/sites-available/default.template
 COPY start.sh /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start.sh
 
-# Set proper permissions
-RUN chown -R www-data:www-data /var/www/html \
+# Create session directory and set proper permissions
+RUN mkdir -p /var/lib/php/sessions \
+    && chown -R www-data:www-data /var/lib/php/sessions \
+    && chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
 # Expose dynamic port
