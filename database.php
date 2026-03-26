@@ -14,9 +14,9 @@ class Database {
     public function __construct() {
         // Use environment variables with fallback to old values for backward compatibility
         $this->servername = getenv('DB_HOST') ?: "localhost";
-        $this->username = getenv('DB_USER') ?: "u755186149_root";
-        $this->password = getenv('DB_PASSWORD') ?: "AM/g=CS7+(}Py~Q]_nmNx[";
-        $this->database = getenv('DB_NAME') ?: "u755186149_test";
+        $this->username = getenv('DB_USER') ?: "root";
+        $this->password = getenv('DB_PASSWORD') ?: "";
+        $this->database = getenv('DB_NAME') ?: "quantraz_game_center";
         $this->port = getenv('DB_PORT') ?: "3306";
     }
 

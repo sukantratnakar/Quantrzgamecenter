@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Systovation Publishing — Premium publishing services for professionals, executives, and thought leaders. Ghostwriting, guided self-publishing, editorial, design, and book strategy.">
+<title>Systovation Publishing — Books for people who've built something worth documenting</title>
+<!--
+  DESIGN IDENTITY: Systovation Publishing
+  
+  This is a PUBLISHING HOUSE, not a consulting firm.
+  Design should feel literary, warm, and tactile — like holding a well-made book.
+  Distinct from sukantratnakar.com (navy/gold corporate advisory).
+  
+  COLOR PALETTE:
+  --charcoal: #2C2C2C          Main dark (warmer than navy, feels like ink)
+  --warm-charcoal: #3A3A3A     Alternating dark sections
+  --parchment: #F7F3EB         Light backgrounds (warm, papery — NOT white)
+  --cream: #EDE8DD             Subtle variation, form backgrounds
+  --copper: #B87333            Primary accent (warm metallic — like a book's foil stamp)
+  --copper-soft: #CFA064       Lighter accent for pull quotes
+  --copper-tint: rgba(184,115,51,0.12)  Subtle borders
+  --text-dark: #1C1C1C         Headings on light
+  --text-body: #4A4A4A         Body on light
+  --text-light: #8A8A8A        Captions
+  --text-on-dark: rgba(255,255,255,0.80)  Body on dark
+  --text-muted-dark: rgba(255,255,255,0.40)  Subtitles on dark
+  
+  TYPOGRAPHY:
+  Display/H1: 'Libre Baskerville', serif (literary, warm, book-interior feel)
+  Body: 'Source Sans Pro', sans-serif (clean, readable, modern)
+  
+  DESIGN RULES:
+  - Same structural principles as sukantratnakar.com (alternating sections, max-width, 
+    no pure white, no stock photos) but warmer palette
+  - Copper replaces gold — feels more literary, less corporate
+  - Libre Baskerville replaces Cormorant Garamond — weightier, more bookish
+  - Overall feel: a publisher's website, not a consultant's website
+-->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --charcoal: #2C2C2C;
+  --warm-charcoal: #3A3A3A;
+  --parchment: #F7F3EB;
+  --cream: #EDE8DD;
+  --copper: #B87333;
+  --copper-soft: #CFA064;
+  --copper-tint: rgba(184,115,51,0.12);
+  --text-dark: #1C1C1C;
+  --text-body: #4A4A4A;
+  --text-light: #8A8A8A;
+  --text-on-dark: rgba(255,255,255,0.80);
+  --text-muted-dark: rgba(255,255,255,0.40);
+  --font-display: 'Libre Baskerville', serif;
+  --font-body: 'Source Sans Pro', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); color: var(--text-body); background: var(--charcoal); -webkit-font-smoothing: antialiased; }
+
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 50px; background: transparent;
+  transition: background 0.4s, padding 0.4s;
+}
+.nav.scrolled { background: rgba(44,44,44,0.95); backdrop-filter: blur(10px); padding: 14px 50px; }
+.nav-brand {
+  font-family: var(--font-display); font-size: 16px; font-weight: 400;
+  color: white; text-decoration: none; letter-spacing: 0.5px;
+}
+.nav-brand span { color: var(--copper); }
+.nav-links { display: flex; gap: 30px; align-items: center; }
+.nav-links a {
+  font-family: var(--font-body); font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-muted-dark);
+  text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover { color: white; }
+.nav-cta {
+  border: 1px solid var(--copper-tint); padding: 8px 20px;
+  color: var(--copper) !important; transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--copper); color: var(--charcoal) !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  padding: 120px 40px 80px; background: var(--charcoal);
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 40%, rgba(184,115,51,0.03) 0%, transparent 55%);
+}
+.hero-content { position: relative; max-width: 660px; }
+.hero-line { width: 40px; height: 1px; background: var(--copper); margin: 0 auto 40px; }
+.hero h1 {
+  font-family: var(--font-display); font-size: 40px; font-weight: 400;
+  color: white; line-height: 1.35; margin-bottom: 25px;
+}
+.hero .sub {
+  font-size: 16px; font-weight: 300; color: var(--text-muted-dark);
+  line-height: 1.9; max-width: 480px; margin: 0 auto 45px;
+}
+.cta-btn {
+  display: inline-block; border: 1px solid var(--copper);
+  color: var(--copper); padding: 14px 40px;
+  font-family: var(--font-body); font-size: 12px;
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; transition: all 0.3s;
+}
+.cta-btn:hover { background: var(--copper); color: var(--charcoal); }
+.hero-tagline {
+  margin-top: 50px; font-family: var(--font-display);
+  font-size: 13px; font-style: italic; color: rgba(255,255,255,0.2);
+}
+
+/* SECTIONS */
+.s-dark { background: var(--warm-charcoal); padding: 90px 40px; }
+.s-light { background: var(--parchment); padding: 90px 40px; }
+.s-deep { background: var(--charcoal); padding: 90px 40px; }
+.s-cream { background: var(--cream); padding: 90px 40px; }
+.container { max-width: 960px; margin: 0 auto; }
+.container-narrow { max-width: 640px; margin: 0 auto; }
+
+.label {
+  font-family: var(--font-body); font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--copper); margin-bottom: 15px;
+}
+.title-dark {
+  font-family: var(--font-display); font-size: 32px; font-weight: 400;
+  color: white; line-height: 1.35; margin-bottom: 28px; max-width: 520px;
+}
+.title-light {
+  font-family: var(--font-display); font-size: 32px; font-weight: 400;
+  color: var(--text-dark); line-height: 1.35; margin-bottom: 28px; max-width: 520px;
+}
+.body-dark { font-size: 15px; font-weight: 300; color: var(--text-on-dark); line-height: 1.95; margin-bottom: 18px; max-width: 540px; }
+.body-light { font-size: 15px; font-weight: 300; color: var(--text-body); line-height: 1.95; margin-bottom: 18px; max-width: 540px; }
+
+.accent-quote {
+  font-family: var(--font-display); font-size: 18px; font-weight: 400;
+  font-style: italic; color: var(--copper-soft); line-height: 1.6;
+  padding-left: 20px; border-left: 2px solid var(--copper);
+  margin: 30px 0; max-width: 480px;
+}
+
+/* SERVICES */
+.services-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 25px; margin-top: 40px;
+}
+.service-card {
+  border: 1px solid var(--copper-tint); padding: 35px 30px;
+  transition: border-color 0.3s;
+}
+.service-card:hover { border-color: rgba(184,115,51,0.3); }
+.service-card .card-num {
+  font-family: var(--font-display); font-size: 32px; font-weight: 400;
+  color: var(--copper); margin-bottom: 14px; opacity: 0.6;
+}
+.service-card h3 {
+  font-family: var(--font-display); font-size: 20px; font-weight: 400;
+  color: white; margin-bottom: 5px; line-height: 1.3;
+}
+.service-card .card-tag {
+  font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--copper); margin-bottom: 14px;
+}
+.service-card p {
+  font-size: 14px; font-weight: 300; color: var(--text-on-dark); line-height: 1.85;
+}
+
+/* FULL WIDTH CARD */
+.service-card.full { grid-column: 1 / -1; }
+
+/* PROCESS */
+.process-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 20px; margin-top: 40px;
+}
+.process-step { text-align: center; }
+.process-num {
+  font-family: var(--font-display); font-size: 36px; font-weight: 400;
+  color: var(--copper); margin-bottom: 10px; opacity: 0.5;
+}
+.process-step h4 {
+  font-family: var(--font-display); font-size: 15px; font-weight: 400;
+  color: var(--text-dark); margin-bottom: 8px;
+}
+.process-step p {
+  font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 1.7;
+}
+.process-connector {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--copper); font-size: 18px; opacity: 0.3;
+  padding-top: 20px;
+}
+
+/* WHO */
+.who-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 20px; margin-top: 35px;
+}
+.who-item {
+  padding: 28px 24px; border-left: 2px solid var(--copper-tint);
+}
+.who-item h4 {
+  font-family: var(--font-display); font-size: 15px; font-weight: 400;
+  color: white; margin-bottom: 8px;
+}
+.who-item p {
+  font-size: 13px; font-weight: 300; color: var(--text-on-dark); line-height: 1.8;
+}
+
+/* IMPRINT */
+.imprint-box {
+  border: 1px solid var(--copper-tint); padding: 40px;
+  margin-top: 35px;
+}
+.imprint-box h3 {
+  font-family: var(--font-display); font-size: 22px; font-weight: 400;
+  color: var(--text-dark); margin-bottom: 15px;
+}
+.imprint-box p {
+  font-size: 15px; color: var(--text-body); line-height: 1.9;
+}
+
+/* CTA SECTION */
+.final-cta {
+  background: var(--charcoal); padding: 100px 40px; text-align: center;
+  position: relative;
+}
+.final-cta::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(184,115,51,0.03) 0%, transparent 50%);
+}
+.cta-frame {
+  border: 1px solid var(--copper-tint); padding: 55px 45px;
+  max-width: 520px; margin: 0 auto; position: relative;
+}
+.cta-line { width: 40px; height: 1px; background: var(--copper); margin: 0 auto 25px; }
+.final-cta h2 {
+  font-family: var(--font-display); font-size: 28px; font-weight: 400;
+  color: white; margin-bottom: 16px; line-height: 1.4;
+}
+.final-cta p {
+  font-size: 14px; color: var(--text-muted-dark); line-height: 1.8;
+  margin-bottom: 30px; max-width: 380px; margin-left: auto; margin-right: auto;
+}
+.secondary-cta {
+  font-size: 14px; color: rgba(255,255,255,0.3); margin-top: 18px;
+}
+.secondary-cta a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+.secondary-cta a:hover { color: var(--copper); }
+
+/* FOOTER */
+.footer {
+  background: #1A1A1A; padding: 30px 40px; text-align: center;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 30px; margin-bottom: 12px;
+}
+.footer-links a {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.3s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.4); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.12); }
+.footer-imprint {
+  font-family: var(--font-display); font-size: 12px;
+  color: rgba(255,255,255,0.15); font-style: italic;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  .nav { padding: 15px 25px; }
+  .hero h1 { font-size: 28px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .who-grid { grid-template-columns: 1fr; }
+  .s-dark, .s-light, .s-deep, .s-cream { padding: 60px 25px; }
+}
+@media (max-width: 600px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero h1 { font-size: 24px; }
+  .process-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-brand">Systovation <span>Publishing</span></a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#who">Who We Publish</a>
+    <a href="https://book.sukantratnakar.com/book" class="nav-cta">Start a Conversation</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-line"></div>
+    <h1>Your experience deserves better than a manuscript sitting in a drawer.</h1>
+    <p class="sub">Systovation Publishing works with professionals, executives, and thought leaders to turn hard-won expertise into books that are crafted with care and built to last.</p>
+    <a href="https://book.sukantratnakar.com/book" class="cta-btn">Start a Conversation</a>
+    <p class="hero-tagline">An imprint of Quantraz Inc.</p>
+  </div>
+</section>
+
+<!-- THE PHILOSOPHY -->
+<section class="s-light">
+  <div class="container-narrow">
+    <div class="label">Our Approach</div>
+    <h2 class="title-light">We don't do assembly-line publishing.</h2>
+    <p class="body-light">Most self-publishing services treat your book like a product to be manufactured — template covers, generic interiors, minimal editing, maximum volume. Your manuscript goes in one end and a book comes out the other, looking like every other self-published book on the shelf.</p>
+    <p class="body-light">We work differently. Every book we publish begins with a conversation about what you're trying to accomplish — not just what you've written. Who needs to read this? What should they feel when they finish? What doors should this book open for you?</p>
+    <div class="accent-quote">A book isn't a product. It's a permanent representation of your thinking. We treat it that way.</div>
+    <p class="body-light">We take on a small number of projects at a time. Each one gets the attention it deserves — from structural editing to cover design to market positioning. The result is a book you'd be proud to hand to anyone, published under an imprint that stands for quality.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="s-deep" id="services">
+  <div class="container">
+    <div class="label">What We Offer</div>
+    <h2 class="title-dark">Five ways to get your book into the world</h2>
+    <p class="body-dark" style="margin-bottom:10px;">Every project is different. Some clients arrive with a complete manuscript. Others arrive with an idea and decades of experience but no written words. We meet you where you are.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="card-num">01</div>
+        <h3>Full Ghostwriting</h3>
+        <div class="card-tag">You talk. We write.</div>
+        <p>You have the expertise but not the time — or the desire — to write a book yourself. Through deep extraction interviews, we capture your thinking, your voice, and your frameworks, then craft a complete manuscript that reads as if you wrote every word. Because intellectually, you did.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-num">02</div>
+        <h3>Guided Self-Publishing</h3>
+        <div class="card-tag">You write. We guide and produce.</div>
+        <p>You want to write the book yourself, but you need structure, feedback, and a production partner who won't cut corners. We provide editorial guidance throughout the writing process, then handle everything from structural editing to cover design to distribution. Your words, our craft.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-num">03</div>
+        <h3>Imprint Publishing</h3>
+        <div class="card-tag">Published by Systovation</div>
+        <p>Your manuscript is ready. You need a publisher who will treat it with respect — professional editing, premium cover design, interior layout, ISBN registration, and distribution across major platforms. Published under the Systovation imprint, your book carries the credibility of a publishing house, not a self-upload.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-num">04</div>
+        <h3>Manuscript Editing</h3>
+        <div class="card-tag">Structural, developmental, or line editing</div>
+        <p>Your manuscript exists but it isn't ready. Maybe the structure wanders. Maybe the argument doesn't land. Maybe the prose needs tightening. We provide the editorial depth that turns a draft into a finished work — from big-picture structural editing to sentence-level polish.</p>
+      </div>
+      <div class="service-card full">
+        <div class="card-num">05</div>
+        <h3>Book Strategy & Positioning</h3>
+        <div class="card-tag">Before you write a word</div>
+        <p>The most important decisions about your book happen before a single word is written. Who is this book for? What gap does it fill? How does it position you in your field? What's the one idea that makes this book worth someone's time? We work with you to answer these questions and produce a comprehensive book strategy — the blueprint that ensures every chapter, every page, every paragraph serves the larger purpose. Many of our clients start here before committing to a full project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="s-cream" id="process">
+  <div class="container">
+    <div class="label">How It Works</div>
+    <h2 class="title-light">From conversation to published book</h2>
+    <p class="body-light">Every project follows the same four phases, regardless of which service you choose. The depth and duration of each phase varies — a ghostwriting project takes 4-6 months, a manuscript edit might take 6 weeks — but the structure is consistent.</p>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h4>Discovery</h4>
+        <p>We talk. Not about publishing — about what you've built, what you want to accomplish, and who you want to reach. This shapes everything that follows.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h4>Architecture</h4>
+        <p>We structure the book — outline, chapter flow, key arguments, narrative arc. For ghostwriting, this includes deep extraction interviews. For editing, this is the structural assessment.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h4>Craft</h4>
+        <p>Writing, editing, and refining. Every manuscript goes through multiple rounds — developmental, structural, and line editing. Cover design and interior layout happen in parallel.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h4>Publication</h4>
+        <p>ISBN, metadata, distribution, platform setup. Your book goes live on Amazon, IngramSpark, and wherever your readers are. Launch strategy and positioning support included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE PUBLISH -->
+<section class="s-dark" id="who">
+  <div class="container">
+    <div class="label">Who We Publish</div>
+    <h2 class="title-dark">We work best with people who have earned<br>the substance behind the story</h2>
+    <p class="body-dark">We're selective about the projects we take on — not because we're exclusive, but because depth of experience is what makes a book worth reading. Our best clients share one thing: they've done the work, and now they're ready to document it.</p>
+
+    <div class="who-grid">
+      <div class="who-item">
+        <h4>Executives & founders</h4>
+        <p>You've built something. A company, a team, a career. You want the strategic thinking behind it documented — for your legacy, your positioning, or your successor.</p>
+      </div>
+      <div class="who-item">
+        <h4>Consultants & advisors</h4>
+        <p>Your methodology lives in your head and in client presentations. A book turns it into intellectual property that works when you're not in the room.</p>
+      </div>
+      <div class="who-item">
+        <h4>Professionals with a story</h4>
+        <p>Doctors, engineers, educators, social workers — people whose career experience has given them a perspective worth sharing. Not memoir for its own sake, but insight earned through doing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPRINT -->
+<section class="s-light">
+  <div class="container-narrow">
+    <div class="label">The Imprint</div>
+    <h2 class="title-light">Why "Published by Systovation" matters</h2>
+    <p class="body-light">A self-published book with no imprint tells the world you uploaded a manuscript. A book published under an imprint tells the world that a publishing team believed in this work enough to put their name on it.</p>
+    <div class="imprint-box">
+      <h3>What the Systovation imprint includes</h3>
+      <p>Professional developmental and line editing. Custom cover design — not a template. Interior layout designed for readability. ISBN and metadata registration. Distribution across Amazon, IngramSpark, and major retail platforms. Quality assurance on print and digital formats. Your book listed under a legitimate publishing house, not as a self-upload.</p>
+    </div>
+    <p class="body-light" style="margin-top: 25px;">We've published authors across management, innovation, leadership, mindfulness, and organizational culture. Every title in our catalogue meets the same editorial and design standards — because the imprint is only as strong as the weakest book that carries it.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="s-dark">
+  <div class="container-narrow">
+    <div class="label">Behind the Imprint</div>
+    <h2 class="title-dark">A publishing house built by someone who writes</h2>
+    <p class="body-dark">Systovation Publishing was founded by Sukant Ratnakar — a Certified Management Consultant, author of over 30 books, and someone who has been on both sides of the publishing table. As an author published by Hay House and Amaryllis, and as a self-published writer, he's experienced everything from the quality of institutional publishing to the independence of doing it yourself.</p>
+    <p class="body-dark">Systovation exists to give professionals the best of both: the editorial depth, design quality, and legitimacy of a traditional publisher, with the speed, ownership, and creative control of self-publishing.</p>
+    <div class="accent-quote">I built this imprint because I watched too many good books get ruined by bad production — and too many experienced people give up on publishing because the process felt overwhelming.</div>
+    <p class="body-dark">Every project is personally overseen. The research methodology that powers our ghostwriting is augmented by advanced tools that allow us to deliver at a speed and depth that traditional publishers can't match. But the craft — the editing, the structure, the design sensibility — is irreducibly human.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container-narrow">
+    <div class="cta-frame">
+      <div class="cta-line"></div>
+      <h2>Every book starts with a conversation.</h2>
+      <p>Tell us what you've built, what you've written, or what you're thinking about writing. We'll tell you honestly whether we can help — and what the path looks like.</p>
+      <a href="https://book.sukantratnakar.com/book" class="cta-btn">Start a Conversation</a>
+      <p class="secondary-cta">Or write to us: <a href="/cdn-cgi/l/email-protection#5d2e28363c33291d2c283c33292f3c27733e3230"><span class="__cf_email__" data-cfemail="afdcdac4cec1dbefdedacec1dbddced581ccc0c2">[email&#160;protected]</span></a></p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-imprint">Systovation Publishing — an imprint of Quantraz Inc.</p>
+  <div class="footer-links">
+    <a href="https://quantraz.com">Quantraz</a>
+    <a href="https://sukantratnakar.com">Sukant Ratnakar</a>
+    <a href="/cdn-cgi/l/email-protection#4e3d3b252f203a0e3f3b2f203a3c2f34602d2123">Email</a>
+  </div>
+  <p class="footer-copy">© 2026 Systovation Publishing · Quantraz Inc · Saskatoon, Canada</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+document.qu

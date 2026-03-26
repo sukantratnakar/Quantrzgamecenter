@@ -1,0 +1,61 @@
+/*
+ * Header Styles
+ * Uses design-system.css variables
+ */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-6);
+  background: transparent;
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+  text-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* Gear/Settings icon */
+.gear-icon,
+.settings-icon {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  font-size: 28px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  z-index: var(--z-dropdown);
+}
+
+.gear-icon:hover,
+.settings-icon:hover {
+  color: var(--accent);
+}
+
+/* Navigation styles (if used) */
+nav {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+nav a {
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+nav a:hover {
+  color: var(--accent);
+}

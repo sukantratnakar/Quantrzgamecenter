@@ -16,6 +16,7 @@ if (isset($_SESSION['email'])) {
     <title>Quantraz Game Center</title>
     <link rel="icon" href="images/tit-logo.svg" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/design-system.css">
     
     <title>Dynamic Table Loader</title>
     <style>

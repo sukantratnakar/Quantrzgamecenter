@@ -18,6 +18,7 @@ if (isset($_SESSION['email'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantraz Game Center</title>
     <link rel="icon" href="images/tit-logo.svg" type="image/png">
+    <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/custom.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 

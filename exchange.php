@@ -12,6 +12,7 @@ if (isset($_SESSION['email'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="styles/design-system.css">
     <link rel="stylesheet" href="styles/wheel.css">
     <link rel="icon" href="images/tit-logo.svg" type="image/png">
     <link rel="stylesheet" href="styles/header.css">

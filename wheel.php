@@ -18,7 +18,8 @@ if (isset($_SESSION['email'])) {
     <title>Roulette Wheel</title>
    
     
-    <link rel="stylesheet" href="/styles/wheel.css">
+    <link rel="stylesheet" href="styles/design-system.css">
+    <link rel="stylesheet" href="styles/wheel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
@@ -442,6 +443,15 @@ if (isset($_SESSION['email'])) {
         const teamsJSON = localStorage.getItem(userEmail + 'teams');
         const teams = JSON.parse(teamsJSON);
         
+        // Safety check: redirect to exchange if no tokens
+        const allTeamsHaveNoTokens = teams.every(team => 
+            (!team.timeTokens || team.timeTokens === 0) && 
+            (!team.energyTokens || team.energyTokens === 0)
+        );
+        if (allTeamsHaveNoTokens && teams[0]?.coins > 0) {
+            alert("You need to exchange coins for tokens first!");
+            window.location.href = 'exchange.php?type=';
+        }
                 
         const order = localStorage.getItem(userEmail + 'order');
         let playOrder = order.split(", ");
