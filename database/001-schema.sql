@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS public.organizations (
     subscription_tier TEXT DEFAULT 'free' CHECK (subscription_tier IN ('free', 'starter', 'pro', 'enterprise')),
     max_teams INTEGER DEFAULT 5,
     max_users INTEGER DEFAULT 25,
+    owner_id UUID, -- References profiles(id), added after profiles table exists
     created_at TIMESTAMPTZ DEFAULT NOW(),
     updated_at TIMESTAMPTZ DEFAULT NOW()
 );

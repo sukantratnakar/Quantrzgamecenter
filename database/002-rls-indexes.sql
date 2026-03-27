@@ -80,6 +80,28 @@ CREATE INDEX IF NOT EXISTS idx_leaderboard_team ON public.leaderboard(team_id);
 CREATE INDEX IF NOT EXISTS idx_leaderboard_game ON public.leaderboard(game_id);
 CREATE INDEX IF NOT EXISTS idx_transactions_team ON public.transactions(team_id);
 CREATE INDEX IF NOT EXISTS idx_transactions_session ON public.transactions(session_id);
+CREATE INDEX IF NOT EXISTS idx_organizations_owner ON public.organizations(owner_id);
+
+-- ===========================================
+-- FOREIGN KEY: organizations.owner_id -> profiles.id
+-- (Added after profiles table exists)
+-- ===========================================
+ALTER TABLE public.organizations 
+ADD CONSTRAINT organizations_owner_id_fkey 
+FOREIGN KEY (owner_id) REFERENCES public.profiles(id)
+ON DELETE SET NULL;
+
+-- ===========================================
+-- RLS POLICIES FOR ORGANIZATION OWNERS
+-- ===========================================
+CREATE POLICY "organization_owner_full_access" ON public.organizations
+    FOR ALL
+    USING (owner_id = auth.uid())
+    WITH CHECK (owner_id = auth.uid());
+
+CREATE POLICY "users_can_create_organizations" ON public.organizations
+    FOR INSERT
+    WITH CHECK (auth.uid() IS NOT NULL);
 
 -- ===========================================
 -- FUNCTIONS
