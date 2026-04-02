@@ -103,6 +103,12 @@ if (isset($_SESSION['email'])) {
         const teamsJSON = localStorage.getItem(userEmail + "teams" + type);
         const teams = JSON.parse(teamsJSON);
 
+        // Guard: If no teams exist, redirect to setup page
+        if (!teams || teams.length === 0) {
+            alert("No teams found. Please set up teams first.");
+            window.location.href = 'testmenu.php?type=' + type;
+        }
+
         const teamsContainer = document.getElementById("teams-container");
 
         teams.forEach(function(team) {
